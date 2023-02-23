@@ -33,6 +33,11 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+            //EDITADO
+            Route::middleware('adb')
+            ->prefix('adb')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
         });
     }
 
