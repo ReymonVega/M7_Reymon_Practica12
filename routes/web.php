@@ -17,7 +17,7 @@ use App\Http\Controllers\admin\AdminController;
 
 Route::get('/', function () {
 return view('welcome');
-});
+})->name('entrada');
 
 // Route::get('/', function () {
 //     return 'Welcome';
@@ -34,7 +34,7 @@ return view('welcome');
 // });
 
 Route::group(['middleware' => ['adb']], function() {
-    Route::get('Clientes',[AdminController::class, 'Cliente']);
-    Route::get('Facturacion',[AdminController::class, 'Facturacion']);
-    Route::get('Contabilidad',[AdminController::class, 'Contabilidad']);
+    Route::get('Clientes',[AdminController::class, 'Cliente'])->name('Clientes');
+    Route::get('Facturacion',[AdminController::class, 'Facturacion'])->name('Facturaciones');
+    Route::get('Contabilidad',[AdminController::class, 'Contabilidad'])->name('Contabilidades');
 });
