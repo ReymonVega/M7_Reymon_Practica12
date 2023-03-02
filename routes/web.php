@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PrimerControlador;
 use App\Http\Controllers\admin\AdminController;
 
 
@@ -16,9 +15,9 @@ use App\Http\Controllers\admin\AdminController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+return view('welcome');
+});
 
 // Route::get('/', function () {
 //     return 'Welcome';
@@ -29,12 +28,10 @@ use App\Http\Controllers\admin\AdminController;
 // });
 
 
-Route::get('/', [PrimerControlador::class, 'arrel']);
-Route::get('/hola/{text}', [PrimerControlador::class, 'hola']);
 
-Route::prefix('adb')->group(function (){
-    Route::get('Clientes',[AdminController::class, 'Cliente']);
-});
+// Route::prefix('adb')->group(function (){
+//     Route::get('Clientes',[AdminController::class, 'Cliente']);
+// });
 
 Route::group(['middleware' => ['adb']], function() {
     Route::get('Clientes',[AdminController::class, 'Cliente']);
